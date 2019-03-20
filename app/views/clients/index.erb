@@ -1,6 +1,16 @@
 <h2>Here are your clients:</h2>
 <% @users_clients.each do |client|%>
 <ol>
-	<h4><li><a href="/clients/<%=client.id%>"><%= client.business_name %></a></li></h4>
+	<p><li><h4><a href="/clients/<%=client.id%>"><%= client.business_name %></a></h4></li></p>
 </ol>
 <%end%>
+
+<!-- <button type="button" value="BACK"><a href="/">Back</a></button> -->
+
+
+<form action="/" method="get">
+	<button type="submit" value="Back">BACK</button>
+</form>
+
+
+
