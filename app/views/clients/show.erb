@@ -4,22 +4,19 @@
 <h4><%=@client.website%></h4>
 <h4><%=@client.projects%></h4>
 <br></br>
+<div class="buttons">
 <% if authorized_to_edit?(@client)%>
-<form action="/clients/<%=@client.id%>/edit" method="get">
+<form class="form-inline" action="/clients/<%=@client.id%>/edit" method="get">
 	<input type="submit" value="Edit">
 </form>
-<form action="/clients/new" method="get">
-	<input type="submit" value="Add new">
-</form>
-<form action="/clients" method="get">
-	<input type="submit" value="Index">
-</form>
-<form class="" action="clients/<%=@client.id%>" method="post">
+<form class="form-inline" action="clients/<%=@client.id%>" method="post">
 	<input type="hidden" name="_method" value="delete">
-	<input type="submit" name="" value="Delete this client">
+	<input type="submit" name="" value="Delete">
 </form>
-<form action="/" method="get">
+<form class="form-inline" action="/" method="get">
 	<input type="submit" value="Back">
 </form>
 <%end%> 
+</div>
+
 
