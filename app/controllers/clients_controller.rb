@@ -19,9 +19,14 @@ class ClientsController < ApplicationController
 
 	get '/clients' do 
 		@all_clients = Client.all
-		@clients = @all_clients.collect {|client| client.user_id == current_user.id}
-		if !@clients
-		erb :'clients/index'
+		@users_clients = []
+		@all_clients.each do |c|
+   			if c.user_id == current_user.id
+				@users_clients << c
+   			end
+		end
+		if @users_clients
+			erb :'clients/index'
 		else
 		flash[:error] = "Your clients list is currently empty"
 		redirect "users/#{current_user.id}"
