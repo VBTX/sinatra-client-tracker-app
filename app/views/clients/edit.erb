@@ -1,0 +1,16 @@
+
+<h2>Edit your existing client record: </h2>
+<form class="" action="/clients/<%=@client.id%>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	<p><label for="business_name">Your client's business name: </label></p>
+	<p><input type="text" name="business_name" value="<%=@client.business_name%>"></p>
+	<p><label for="address">Your client's address: </label></p>
+	<p><input type="text" name="address" value="<%=@client.address%>"></p>
+	<p><label for="email">Your client's email: </label></p>
+	<p><input type="text" name="email" value="<%=@client.email%>"></p>
+	<p><label for="website">Your client's website: </label></p>
+	<p><input type="text" name="website" value="<%=@client.website%>"></p>
+	<p><label for="projects">Your client's projects: </label></p>
+	<p><input type="text" name="projects" value="<%=@client.projects%>"></p>
+	<input type="submit" value="Create"></p>
+</form>
