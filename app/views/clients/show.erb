@@ -1,0 +1,9 @@
+<h3><%=@client.business_name%></h3>
+<% if authorized_to_edit?(@client)%>
+<a href="clients/<%=@client.id%>/edit">Edit</a>
+<br></br>
+<form class="" action="clients/<%=@client.id%>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" name="" value="Delete this client record">
+</form>
+<%end%> 
