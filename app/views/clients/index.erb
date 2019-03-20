@@ -1,6 +1,6 @@
 <h2>Here are your clients:</h2>
-<!-- # <% @clients.each do |client|%>
-# <ul>
-# <h4><li><a href="/clients/<%=client.id%>"><%= client.business_name %></a></li></h4>
-# </ul>
-# <%end%> -->
+<% @users_clients.each do |client|%>
+<ol>
+	<h4><li><a href="/clients/<%=client.id%>"><%= client.business_name %></a></li></h4>
+</ol>
+<%end%>
