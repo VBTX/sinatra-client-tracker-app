@@ -4,16 +4,16 @@
 <h4><%=@client.website%></h4>
 <h4><%=@client.projects%></h4>
 <br></br>
-<div class="buttons">
+<div>
 <% if authorized_to_edit?(@client)%>
-<form class="form-inline" action="/clients/<%=@client.id%>/edit" method="get">
+<form action="/clients/<%=@client.id%>/edit" method="get">
 	<input type="submit" value="Edit">
 </form>
-<form class="form-inline" action="clients/<%=@client.id%>" method="post">
+<form action="/clients/<%=@client.id%>" method="post">
 	<input type="hidden" name="_method" value="delete">
 	<input type="submit" name="" value="Delete">
 </form>
-<form class="form-inline" action="/" method="get">
+<form action="/" method="get">
 	<input type="submit" value="Back">
 </form>
 <%end%> 
