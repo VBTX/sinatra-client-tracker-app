@@ -3,6 +3,7 @@
 <h4><%=@client.email%></h4>
 <h4><%=@client.website%></h4>
 <h4><%=@client.projects%></h4>
+<br></br>
 <% if authorized_to_edit?(@client)%>
 <a href="/clients/<%=@client.id%>/edit">Edit client details</a>
 <br></br>
