@@ -8,18 +8,25 @@ class ClientsController < ApplicationController
 	post '/clients' do
 		redirect_if_not_logged_in
 		if params[:business_name] != ""
-			flash[:error] = "Client name was successfully added."
+			flash[:message] = "Client was successfully added."
 			@client = Client.create(business_name: params[:business_name], address: params[:address], email: params[:email], website: params[:website], projects: params[:projects], user_id: current_user.id)
 			redirect "/clients/#{@client.id}"
 		else
-			flash[:error] = "Please enter a title"
-			redirect '/glossaries/new'
+			flash[:error] = "Please enter a business name for your client"
+			redirect '/clients/new'
 		end
 	end
 
 	get '/clients' do 
-		@clients = Client.all
+		@all_clients = Client.all
+		@clients = @all_clients.collect {|client| client.user_id == current_user.id}
+		if !@clients
 		erb :'clients/index'
+		else
+		flash[:error] = "Your clients list is currently empty"
+		redirect "users/#{current_user.id}"
+	end
+
 	end
 
 	get '/clients/:id' do
