@@ -67,7 +67,6 @@ class ClientsController < ApplicationController
 			@client.destroy
 			flash[:message] = "Your client record was successfully deleted."
 			redirect "/clients"
-
 		else
 			redirect "/clients"
 		end
