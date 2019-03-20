@@ -4,7 +4,7 @@
 <h4><%=@client.website%></h4>
 <h4><%=@client.projects%></h4>
 <% if authorized_to_edit?(@client)%>
-<a href="clients/<%=@client.id%>/edit">Edit client details</a>
+<a href="/clients/<%=@client.id%>/edit">Edit client details</a>
 <br></br>
 <form class="" action="clients/<%=@client.id%>" method="post">
 	<input type="hidden" name="_method" value="delete">
