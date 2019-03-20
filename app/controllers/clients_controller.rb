@@ -53,8 +53,8 @@ class ClientsController < ApplicationController
 	patch '/clients/:id' do 
 		set_client
 		redirect_if_not_logged_in
-			if authorized_to_edit?(@client) && params[:business_name] != ""
-				@client.update(title: params[:params])
+			if authorized_to_edit?(@client)
+				@client.update(business_name: params[:business_name], address: params[:address], email: params[:email], website: params[:website], projects: params[:projects], user_id: current_user.id)
 				redirect "/clients/#{@client.id}"
 			else
 				redirect "users/#{current_user.id}"
