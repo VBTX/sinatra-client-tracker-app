@@ -35,7 +35,7 @@ class ClientsController < ApplicationController
 	end
 
 	get '/clients/:id' do
-		redirect_if_not_logged_in 
+		redirect_if_not_logged_in
 		set_client
 		erb :'clients/show'
 	end
@@ -54,7 +54,8 @@ class ClientsController < ApplicationController
 		set_client
 		redirect_if_not_logged_in
 			if authorized_to_edit?(@client)
-				@client.update(business_name: params[:business_name], address: params[:address], email: params[:email], website: params[:website], projects: params[:projects], user_id: current_user.id)
+				params.delete('_method')
+				@client.update(params)
 				redirect "/clients/#{@client.id}"
 			else
 				redirect "users/#{current_user.id}"
@@ -75,6 +76,6 @@ class ClientsController < ApplicationController
 	private
 
 	def set_client
-		@client = Client.find(params[:id])
+		@client = Client.find_by_id(params[:id])
 	end
 end
